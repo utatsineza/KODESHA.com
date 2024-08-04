@@ -7,13 +7,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-//middleware
+// middleware
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParse.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//initialize SQLite database
+// initialize SQLite database
 const db = new sqlite3.Database(':memory:');
 
 db.serialize(() => {
@@ -27,7 +27,7 @@ app.get('/', (req,res) => {
 });
 
 
-//handle contact form submissions
+// handle contact form submissions
 app.post('/send_message', (req, res) => {
 	const { name, email, phone, message } = req.body;
 	
@@ -41,7 +41,7 @@ app.post('/send_message', (req, res) => {
 	});
 
 
-//start the server
+// start the server
 app.listen(PORT,() => {
 	console.log('Server is running on htttp://localhost:${PORT}');
 });
