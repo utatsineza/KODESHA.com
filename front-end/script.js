@@ -55,23 +55,42 @@ document.addEventListener('DOMContentLoaded', () => {
         displayProperties(filteredProperties);
     });
 
-    // Cookie banner logic
-    const cookieBanner = document.getElementById('cookieBanner');
-    const acceptCookies = document.getElementById('acceptCookies');
-    const declineCookies = document.getElementById('declineCookies');
+document.addEventListener("DOMContentLoaded", function () {
+    const cookieBanner = document.getElementById("cookieBanner");
+    const acceptCookies = document.getElementById("acceptCookies");
+    const declineCookies = document.getElementById("declineCookies");
 
-    const cookieConsent = localStorage.getItem('cookieConsent');
-    if (!cookieConsent) {
-        cookieBanner.style.display = 'block';
-    }
-
-    acceptCookies.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        cookieBanner.style.display = 'none';
+    acceptCookies.addEventListener("click", function () {
+        cookieBanner.style.display = "none";
     });
 
-    declineCookies.addEventListener('click', () => {
-        cookieBanner.style.display = 'none';
+    declineCookies.addEventListener("click", function () {
+        cookieBanner.style.display = "none";
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch(contactForm.action, {
+            method: contactForm.method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result);
+            contactForm.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        });
     });
 });
 
