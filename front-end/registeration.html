@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .registration-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .registration-container h2 {
+            margin-bottom: 20px;
+        }
+        .registration-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .registration-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .registration-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Register</h2>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <button id="registerBtn">Register</button>
+        <div id="regMessage" style="margin-top: 10px;"></div>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        // Function to register a new user
+        document.getElementById('registerBtn').addEventListener('click', () => {
+            const regEmail = document.getElementById('regEmail').value;
+            const regPassword = document.getElementById('regPassword').value;
+            const regMessage = document.getElementById('regMessage');
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const userExists = users.some(user => user.email === regEmail);
+
+            if (userExists) {
+                regMessage.textContent = 'User already exists!';
+                regMessage.style.color = 'red';
+            } else {
+                users.push({ email: regEmail, password: regPassword });
+                localStorage.setItem('users', JSON.stringify(users));
+                regMessage.textContent = 'Registration successful!';
+                regMessage.style.color = 'green';
+                // Redirect to login page
+                // window.location.href = 'login.html'; // Example redirect
+            }
+        });
+    </script>
+</body>
+</html>
