@@ -1,8 +1,13 @@
+function openLogin() {
+    alert("Login function called!");
+    window.open('login.html', 'loginWindow', 'width=500,height=600');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const properties = [
         {
             id: 1,
-            image: 'property1.jpg',
+            image: 'image 0.jpeg',
             name: 'Cozy Apartment',
             location: 'Kigali, Rwanda',
             description: 'A cozy apartment perfect for students, located near campus.',
@@ -10,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 2,
-            image: 'property2.jpg',
+            image: 'image 2.jpg',
             name: 'Modern Studio',
             location: 'Kigali, Rwanda',
             description: 'A modern studio with all amenities included.',
@@ -18,12 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 3,
-            image: 'property3.jpg',
+            image: 'image 3.jpg',
             name: 'Shared House',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
             price: '150'
-        }
+        },
+        {
+            id: 3,
+            image: 'image 4.jpg',
+            name: 'Kuri 40',
+            location: 'Kigali, Rwanda',
+            description: 'A shared house with individual rooms available.',
+            price: '150'
+        },
+        {
+            id: 3,
+            image: 'image 5.jpg',
+            name: 'Nyamirambo',
+            location: 'Kigali, Rwanda',
+            description: 'A shared house with individual rooms available.',
+            price: '150'
+        },
     ];
 
     const propertiesContainer = document.getElementById('properties');
@@ -94,3 +115,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+});
