@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const nodemailer = requie('nodemailer');
 const { sequelize, User, Property, Message } = require('./models');
 
 const app = express();
@@ -12,6 +13,8 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Authentication Middleware
 const authMiddleware = (req, res, next) => {
@@ -72,6 +75,35 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.post('/send-message', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  // Set up nodemailer transporter
+  let transporter = nodemailer.createTransport({
+    service: 'gmail', // Or another email service provider
+    auth: {
+      user: 'your-email@gmail.com',
+      pass: 'your-email-password'
+    }
+  });
+
+   // Set up email options
+   let mailOptions = {
+    from: email,
+    to: 'recipient-email@example.com',
+    subject: subject,
+    text: `You have a new message from ${name} (${email}):\n\n${message}`
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).send('Message sent successfully!');
+  } catch (error) {
+    res.status(500).send('Error sending message: ' + error.message);
+  }
+});
+
 
 app.get('/properties', authMiddleware, async (req, res) => {
   try {
