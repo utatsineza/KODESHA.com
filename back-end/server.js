@@ -118,7 +118,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Message sending route
-app.post('/send-message', [
+app.post('/send_message', [
   body('email').isEmail().withMessage('Please enter a valid email address'),
   body('name').trim().escape().notEmpty().withMessage('Name is required'),
   body('subject').trim().escape().notEmpty().withMessage('Subject is required'),
