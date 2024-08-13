@@ -1,11 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listings - KODESHA.com</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Merged CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+
+        header {
+            background-color: LightSkyBlue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            text-align: left;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            background-color: LightSkyBlue;
+            text-align: right;
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        header img {
+            height: 100px;
+            margin: 0;
+            padding: 1px 1px;
+        }
+
+        section {
+            padding: 50px 20px;
+            border-bottom: 1px solid #ccc;
+            background-color: #ffffff;
+            color: lightskyblue;
+        }
+
+        #listings input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #properties {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .property {
+            border: 1px solid #ccc;
+            margin: 1rem;
+            padding: 1rem;
+            width: calc(33% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .property img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: white;
+            color: LightSkyBlue;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        footer .footer-section {
+            flex: 1;
+            min-width: 150px;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer .footer-section h3 {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-section p,
+        footer .footer-section ul {
+            margin: 5px 0;
+        }
+
+        footer .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer .footer-section ul li {
+            margin: 5px 0;
+        }
+
+        footer .footer-section ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        footer .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #59A3D5;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            display: none;
+            z-index: 9999;
+        }
+
+        .cookie-banner p {
+            margin: 0;
+        }
+
+        .cookie-banner button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cookie-banner button:hover {
+            background-color: #ccc;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <img src="images/kodesha image.jpg" alt="KODESHA Logo">
@@ -18,13 +175,13 @@
         </nav>
     </header>
 
-    <!-- Listings Section -->
+    
     <section id="listings">
         <h2>Available Listings</h2>
         <input type="text" id="search" placeholder="Search by location">
         <div id="properties"></div>
     </section>
-    
+
     <footer>
         <div class="container">
             <div class="footer-section">
@@ -35,9 +192,9 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-            </div>
-
-            <div class="footer-section">
+                        </div>
+            
+                        <div class="footer-section">
                 <h3>Address</h3>
                 <p>Kigali, Rwanda</p>
                 <p>Phone: <a href="tel:+250791754678">+250791754678</a></p>
@@ -51,6 +208,94 @@
         <p>We use cookies to ensure you get the best experience on our website. <button id="acceptCookies">Accept</button> <button id="declineCookies">Decline</button></p>
     </div>
 
-    
+    <script>
+        // Merged JavaScript
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const properties = [{
+                    id: 1,
+                    image: 'images/image 0.jpeg',
+                    name: 'Cozy Apartment',
+                    location: 'Kigali, Gatenga',
+                    description: 'A cozy apartment perfect for students, located near campus.',
+                    price: '200'
+                },
+                {
+                    id: 2,
+                    image: 'images/image 2.jpg',
+                    name: 'Modern Studio',
+                    location: 'Kigali, Kosimosi',
+                    description: 'A modern studio with all amenities included.',
+                    price: '300'
+                },
+                {
+                    id: 3,
+                    image: 'images/image 3.jpg',
+                    name: 'Shared House',
+                    location: 'Kigali, Kubisima',
+                    description: 'A shared house with individual rooms available.',
+                    price: '150'
+                },
+                {
+                    id: 4,
+                    image: 'images/image 4.jpg',
+                    name: 'Sunset Villa',
+                    location: 'Kigali, Kuri 40',
+                    description: 'A villa with beautiful sunset views.',
+                    price: '150'
+                },
+                {
+                    id: 5,
+                    image: 'images/image 5.jpg',
+                    name: 'Horizon View',
+                    location: 'Kigali, Nyamirambo',
+                    description: 'A property with a stunning horizon view.',
+                    price: '150'
+                }
+            ];
+
+            const propertiesContainer = document.getElementById('properties');
+
+            function displayProperties(properties) {
+                propertiesContainer.innerHTML = '';
+                properties.forEach(property => {
+                    const propertyDiv = document.createElement('div');
+                    propertyDiv.classList.add('property');
+                    propertyDiv.innerHTML = `
+                        <img src="${property.image}" alt="${property.name}">
+                        <h3>${property.name}</h3>
+                        <p><strong>Location:</strong> ${property.location}</p>
+                        <p><strong>Description:</strong> ${property.description}</p>
+                        <p><strong>Price:</strong> $${property.price}/month</p>
+                    `;
+                    propertiesContainer.appendChild(propertyDiv);
+                });
+            }
+
+            displayProperties(properties);
+
+            const searchInput = document.getElementById('search');
+            searchInput.addEventListener('input', () => {
+                const searchValue = searchInput.value.toLowerCase();
+                const filteredProperties = properties.filter(property =>
+                    property.location.toLowerCase().includes(searchValue)
+                );
+                displayProperties(filteredProperties);
+            });
+
+            const cookieBanner = document.getElementById("cookieBanner");
+            const acceptCookies = document.getElementById("acceptCookies");
+            const declineCookies = document.getElementById("declineCookies");
+
+            acceptCookies.addEventListener("click", function () {
+                cookieBanner.style.display = "none";
+            });
+
+            declineCookies.addEventListener("click", function () {
+                cookieBanner.style.display = "none";
+            });
+        });
+    </script>
 </body>
+
 </html>
