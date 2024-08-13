@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const properties = [
         {
             id: 1,
-            image: 'image 0.jpeg',
+            image: 'images/image 0.jpeg',
             name: 'Cozy Apartment',
             location: 'Kigali, Rwanda',
             description: 'A cozy apartment perfect for students, located near campus.',
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 2,
-            image: 'image 2.jpg',
+            image: 'images/image 2.jpg',
             name: 'Modern Studio',
             location: 'Kigali, Rwanda',
             description: 'A modern studio with all amenities included.',
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 3,
-            image: 'image 3.jpg',
+            image: 'images/image 3.jpg',
             name: 'Shared House',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 3,
-            image: 'image 4.jpg',
+            image: 'images/image 4.jpg',
             name: 'Kuri 40',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 3,
-            image: 'image 5.jpg',
+            image: 'images/image 5.jpg',
             name: 'Nyamirambo',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
