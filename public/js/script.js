@@ -77,26 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageUploadInput = document.getElementById('imageUpload');
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
 
-    imageUploadInput.addEventListener('change', function() {
-        const files = this.files;
-        imagePreviewContainer.innerHTML = ''; // Clear previous previews
+    if (imageUploadInput && imagePreviewContainer) {
+        imageUploadInput.addEventListener('change', function() {
+            const files = this.files;
+            imagePreviewContainer.innerHTML = ''; // Clear previous previews
 
-        Array.from(files).forEach(file => {
-            const reader = new FileReader();
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
 
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.maxWidth = '200px'; // Adjust as needed
-                img.style.margin = '10px'; // Adjust as needed
-                img.style.border = '1px solid #ccc'; // Optional: add border
-                img.classList.add('zoomable'); // Add class for zoom functionality
-                imagePreviewContainer.appendChild(img);
-            };
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.maxWidth = '200px'; // Adjust as needed
+                    img.style.margin = '10px'; // Adjust as needed
+                    img.style.border = '1px solid #ccc'; // Optional: add border
+                    img.classList.add('zoomable'); // Add class for zoom functionality
+                    imagePreviewContainer.appendChild(img);
+                };
 
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
+            });
         });
-    });
+    }
 
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('zoomable')) {
@@ -115,11 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const cookieBanner = document.getElementById("cookieBanner");
-        const acceptCookies = document.getElementById("acceptCookies");
-        const declineCookies = document.getElementById("declineCookies");
+    const cookieBanner = document.getElementById("cookieBanner");
+    const acceptCookies = document.getElementById("acceptCookies");
+    const declineCookies = document.getElementById("declineCookies");
 
+    if (cookieBanner && acceptCookies && declineCookies) {
         acceptCookies.addEventListener("click", function () {
             cookieBanner.style.display = "none";
         });
@@ -127,8 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
         declineCookies.addEventListener("click", function () {
             cookieBanner.style.display = "none";
         });
+    }
 
-        const contactForm = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm");
+
+    if (contactForm) {
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
@@ -152,6 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('An error occurred. Please try again.');
             });
         });
-    });
+    }
 });
 
