@@ -10,7 +10,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const { body, validationResult } = require('express-validator');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // Database setup with PostgreSQL
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
