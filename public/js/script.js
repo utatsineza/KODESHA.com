@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             image: 'images/image 0.jpeg',
             name: 'Cozy Apartment',
-            location: 'Kigali, Rwanda',
+            location: 'gatenga',
             description: 'A cozy apartment perfect for students, located near campus.',
             price: '200'
         },
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 2,
             image: 'images/image 2.jpg',
             name: 'Modern Studio',
-            location: 'Kigali, Rwanda',
+            location: 'kosimosi',
             description: 'A modern studio with all amenities included.',
             price: '300'
         },
@@ -25,15 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 3,
             image: 'images/image 3.jpg',
             name: 'Shared House',
-            location: 'Kigali, Rwanda',
+            location: 'kubisima',
             description: 'A shared house with individual rooms available.',
             price: '150'
         },
         {
             id: 3,
             image: 'images/image 4.jpg',
-            name: '',
-            location: 'Kigali, Rwanda',
+            name: 'sunset villa',
+            location: 'Kuri 40',
             description: 'A shared house with individual rooms available.',
             price: '150'
         },
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 3,
             image: 'images/image 5.jpg',
             name: 'horizon view',
-            location: 'Kigali, Rwanda',
+            location: 'nyamirambo',
             description: 'A shared house with individual rooms available.',
             price: '150'
         },
