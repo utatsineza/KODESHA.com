@@ -37,6 +37,12 @@ const Message = sequelize.define('Message', {
   message: { type: DataTypes.TEXT, allowNull: false },
 });
 
+const Property = sequelize.define('Property', {
+  name: { type: DataTypes.STRING, allowNull: false },
+  address: { type: DataTypes.STRING, allowNull: false },
+  // Add other fields as necessary
+});
+
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -60,6 +66,10 @@ const authMiddleware = (req, res, next) => {
 };
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Welcome to the API!');
+});
+
 app.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -120,15 +130,15 @@ app.post('/send-message', [
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER,  // Use environment variables for security
-      pass: process.env.EMAIL_PASS   // Use environment variables for security
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
 
   let mailOptions = {
     from: email,
-    to: 'Kodesha77@gmail.com',  // Replace with the real recipient email
+    to: 'Kodesha77@gmail.com',
     subject: subject,
     text: `You have a new message from ${name} (${email}):\n\n${message}`
   };
@@ -149,7 +159,7 @@ app.get('/properties', authMiddleware, async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
-}),
+});
 
 // Sync database and start server
 sequelize.sync().then(() => {
