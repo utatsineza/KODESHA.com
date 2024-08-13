@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #59A3D5;
+    color: black;
 }
 
 header {
@@ -16,21 +16,6 @@ header h1 {
     color: white;
     margin: 0;
     text-align: left;
-}
-
-nav{
-    margin-bottom: 0px;
-}
-
-/* Remove or reduce margin below the nav */
-nav + * {
-    margin-top: 5px; /* Reduce the top margin of the element directly after nav */
-}
-
-/* You may also want to adjust the content area */
-.content {
-    padding: 20px;
-    margin-top: 0; /* Remove or reduce the margin on top of the content */
 }
 
 header nav {
@@ -56,43 +41,9 @@ section {
     padding: 50px 20px;
     border-bottom: 1px solid #ccc;
     background-color: #ffffff;
-    color: #59A3D5;
+    color: lightskyblue;
 }
-
-#home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('../images/background1.jpg'); /* Background image */
-    background-size: cover; /* Cover the entire section */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    color: #ffffff; /* Change text color for better readability */
-    padding:5px 5px; /* Increase padding for more space */
-    min-height: 500px; /* Set a minimum height */
-    position: relative; /* Set relative positioning */
-    padding-bottom: 500px;
-}
-
-#home h2, #home p {
-    color: #ffffff; /* Ensure text is visible on the background */
-}
-
-.home h1 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.home p {
-    font-size: 1.25rem;
-    margin-top:5px;
-}
-
-section h2, section h3 {
-    color: #59A3D5;
-}
-
-section p, section ul {
+home{
     color: black;
 }
 
