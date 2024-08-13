@@ -121,7 +121,7 @@ app.post('/login', async (req, res) => {
 app.post('/send_message', [
   body('email').isEmail().withMessage('Please enter a valid email address'),
   body('name').trim().escape().notEmpty().withMessage('Name is required'),
-  body('subject').trim().escape().notEmpty().withMessage('Subject is required'),
+  body('subject').trim().escape().notEmpty().withMessage('Subject is required'), // Ensure this is present
   body('message').trim().escape().notEmpty().withMessage('Message is required'),
 ], async (req, res) => {
   const errors = validationResult(req);
@@ -131,7 +131,7 @@ app.post('/send_message', [
 
   const { name, email, subject, message } = req.body;
 
-  
+ 
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -140,7 +140,7 @@ app.post('/send_message', [
     },
   });
 
-  
+ 
   let mailOptions = {
     from: email,
     to: 'Kodesha77@gmail.com',
@@ -155,6 +155,7 @@ app.post('/send_message', [
     res.status(500).send('Error sending message: ' + error.message);
   }
 });
+
 
 // Properties route (protected)
 app.get('/properties', authMiddleware, async (req, res) => {
