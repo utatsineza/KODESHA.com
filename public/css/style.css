@@ -63,7 +63,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('images/background1.jpg'); /* Background image */
+    background-image: url('images/background 1.jpg'); /* Background image */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
