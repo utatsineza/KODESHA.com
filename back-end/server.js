@@ -118,9 +118,9 @@ app.post('/login', async (req, res) => {
 // Message sending route
 app.post('/send-message', [
   body('email').isEmail().withMessage('Please enter a valid email address'),
-  body('name').trim().escape(),
-  body('subject').trim().escape(),
-  body('message').trim().escape()
+  body('name').trim().escape().notEmpty().withMessage('Name is required'),
+  body('subject').trim().escape().notEmpty().withMessage('Subject is required'),
+  body('message').trim().escape().notEmpty().withMessage('Message is required'),
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -129,21 +129,21 @@ app.post('/send-message', [
 
   const { name, email, subject, message } = req.body;
 
-
+  
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
+      pass: process.env.EMAIL_PASS,
+    },
   });
 
-
+  
   let mailOptions = {
     from: email,
     to: 'Kodesha77@gmail.com',
     subject: subject,
-    text: `You have a new message from ${name} (${email}):\n\n${message}`
+    text: `You have a new message from ${name} (${email}):\n\n${message}`,
   };
 
   try {
