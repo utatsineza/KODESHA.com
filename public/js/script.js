@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 3,
             image: 'images/image 4.jpg',
-            name: 'Kuri 40',
+            name: '',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
             price: '150'
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 3,
             image: 'images/image 5.jpg',
-            name: 'Nyamirambo',
+            name: 'horizon view',
             location: 'Kigali, Rwanda',
             description: 'A shared house with individual rooms available.',
             price: '150'
