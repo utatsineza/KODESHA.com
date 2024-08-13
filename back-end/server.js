@@ -45,7 +45,7 @@ const Property = sequelize.define('Property', {
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -65,11 +65,12 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// Routes
+// Serve the main `index.html` file at the root route
 app.get('/', (req, res) => {
-  res.send('Welcome to the API!');
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
+// User registration route
 app.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -92,6 +93,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// User login route
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -113,6 +115,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// Message sending route
 app.post('/send-message', [
   body('email').isEmail().withMessage('Please enter a valid email address'),
   body('name').trim().escape(),
@@ -151,7 +154,7 @@ app.post('/send-message', [
   }
 });
 
-
+// Properties route (protected)
 app.get('/properties', authMiddleware, async (req, res) => {
   try {
     const properties = await Property.findAll();
