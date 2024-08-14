@@ -55,60 +55,21 @@
             color: lightskyblue;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            color: black;
-        }
+.contact-info {
+    font-size: 1rem;
+    color: #333; /* Adjust color to fit your design */
+    margin-top: 20px;
+}
 
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: black;
-        }
+.contact-info a {
+    color: #59A3D5; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
 
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+.contact-info a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
 
-        .contact-form input,
-        .contact-form textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form input[type="tel"],
-        .contact-form textarea {
-            background-color: #ffffff;
-            color: black;
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: LightSkyBlue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background-color: #0056b3;
-        }
 
         footer {
             background-color: white;
@@ -198,37 +159,33 @@
         <img src="images/kodesha image.jpg" alt="KODESHA Logo">
         <h1>KODESHA.com</h1>
         <nav>
-            <a href="#index.html">Home</a>
-            <a href="#listings.html">Listings</a>
-            <a href="#services.html">Services</a>
-            <a href="#contact.html">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <section>
-        <div class="contact-form">
-            <h2>Contact Us</h2>
-            <form id="contactForm" action="https://your-server-endpoint" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p class="contact-info">
+                    You can reach us via email: 
+                    <a href="mailto:Kodesha77@gmail.com">Kodesha77@gmail.com</a> 
+                    or call us at: 
+                    <a href="tel:+250791754678">0791754678</a>.
+                </p>
+            </section>
+            
 
     <footer>
         <div class="container">
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#index.html">Home</a></li>
-                    <li><a href="#listings.html">Listings</a></li>
-                    <li><a href="#services.html">Services</a></li>
-                    <li><a href="#contact.html">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Listings</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             
