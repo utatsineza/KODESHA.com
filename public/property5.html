@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore House - KODESHA.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+
+        #house-details {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .house-part {
+            display: none;
+            position: relative;
+        }
+
+        .house-part.active {
+            display: block;
+        }
+
+        .house-part img {
+            width: 100%;
+            height: auto;
+        }
+
+        #house-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="house-details">
+        <!-- Front View -->
+        <div id="front-view" class="house-part active">
+            <img src="images/image 5.jpg" alt="House Front View">
+        </div>
+
+        <!-- Bedroom -->
+        <div id="bedroom" class="house-part">
+            <h3>Bedroom</h3>
+            <img src="images/bedroom 5.jpeg" alt="Bedroom Image">
+        </div>
+
+        <!-- Kitchen -->
+        <div id="kitchen" class="house-part">
+            <h3>Kitchen</h3>
+            <img src="images/kitchen 5.jpeg" alt="Kitchen Image">
+        </div>
+
+        <!-- Living Room -->
+        <div id="livingroom" class="house-part">
+            <h3>Living Room</h3>
+            <img src="images/livingroom 5.jpeg" alt="Living Room Image">
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div id="house-navigation">
+            <button class="nav-button" id="prev-part">&lt;</button>
+            <button class="nav-button" id="next-part">&gt;</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const parts = document.querySelectorAll('.house-part');
+            let currentPartIndex = 0;
+
+            function showHousePart(index) {
+                parts.forEach((part, i) => {
+                    part.classList.toggle('active', i === index);
+                });
+            }
+
+            showHousePart(currentPartIndex);
+
+            document.getElementById('prev-part').addEventListener('click', () => {
+                currentPartIndex = (currentPartIndex === 0) ? parts.length - 1 : currentPartIndex - 1;
+                showHousePart(currentPartIndex);
+            });
+
+            document.getElementById('next-part').addEventListener('click', () => {
+                currentPartIndex = (currentPartIndex + 1) % parts.length;
+                showHousePart(currentPartIndex);
+            });
+        });
+    </script>
+</body>
+
+</html>

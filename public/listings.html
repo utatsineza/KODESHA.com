@@ -73,11 +73,22 @@
             padding: 1rem;
             width: calc(33% - 2rem);
             box-sizing: border-box;
+            text-align: center;
         }
 
         .property img {
             max-width: 100%;
             height: auto;
+        }
+
+        .property a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: LightSkyBlue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
         }
 
         footer {
@@ -164,7 +175,7 @@
 </head>
 
 <body>
- 
+
     <header>
         <img src="images/kodesha image.jpg" alt="KODESHA Logo">
         <h1>KODESHA.com</h1>
@@ -175,7 +186,6 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-
 
     <section id="listings">
         <h2>Available Listings</h2>
@@ -193,9 +203,9 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                        </div>
-            
-                        <div class="footer-section">
+            </div>
+
+            <div class="footer-section">
                 <h3>Address</h3>
                 <p>Kigali, Rwanda</p>
                 <p>Phone: <a href="tel:+250791754678">+250791754678</a></p>
@@ -219,7 +229,8 @@
                     name: 'Cozy Apartment',
                     location: 'Kigali, Gatenga',
                     description: 'A cozy apartment perfect for students, located near campus.',
-                    price: '200'
+                    price: '200',
+                    link: 'property1.html'
                 },
                 {
                     id: 2,
@@ -227,7 +238,8 @@
                     name: 'Modern Studio',
                     location: 'Kigali, Kosimosi',
                     description: 'A modern studio with all amenities included.',
-                    price: '300'
+                    price: '300',
+                    link: 'property2.html'
                 },
                 {
                     id: 3,
@@ -235,7 +247,8 @@
                     name: 'Shared House',
                     location: 'Kigali, Kubisima',
                     description: 'A shared house with individual rooms available.',
-                    price: '150'
+                    price: '150',
+                    link: 'property3.html'
                 },
                 {
                     id: 4,
@@ -243,7 +256,8 @@
                     name: 'Sunset Villa',
                     location: 'Kigali, Kuri 40',
                     description: 'A villa with beautiful sunset views.',
-                    price: '150'
+                    price: '150',
+                    link: 'property4.html'
                 },
                 {
                     id: 5,
@@ -251,7 +265,8 @@
                     name: 'Horizon View',
                     location: 'Kigali, Nyamirambo',
                     description: 'A property with a stunning horizon view.',
-                    price: '150'
+                    price: '150',
+                    link: 'property5.html'
                 }
             ];
 
@@ -268,6 +283,7 @@
                         <p><strong>Location:</strong> ${property.location}</p>
                         <p><strong>Description:</strong> ${property.description}</p>
                         <p><strong>Price:</strong> $${property.price}/month</p>
+                        <a href="${property.link}">View Property</a>
                     `;
                     propertiesContainer.appendChild(propertyDiv);
                 });
