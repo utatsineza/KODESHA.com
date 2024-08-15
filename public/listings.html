@@ -20,20 +20,24 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0;
+            padding: 10px;
+            flex-wrap: wrap;
         }
 
         header h1 {
             color: white;
             margin: 0;
             text-align: left;
+            flex-grow: 1;
         }
 
         header nav {
             display: flex;
             align-items: center;
-            background-color: LightSkyBlue;
             text-align: right;
+            flex-grow: 1;
+            justify-content: flex-end;
+            flex-wrap: wrap;
         }
 
         header nav a {
@@ -43,14 +47,12 @@
         }
 
         header img {
-            height: 100px;
-            margin: 0;
-            padding: 1px 1px;
+            height: 80px;
+            margin-right: 10px;
         }
 
         section {
-            padding: 50px 20px;
-            border-bottom: 1px solid #ccc;
+            padding: 30px 20px;
             background-color: #ffffff;
             color: lightskyblue;
         }
@@ -65,13 +67,14 @@
         #properties {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
         .property {
             border: 1px solid #ccc;
-            margin: 1rem;
+            margin: 1rem 0;
             padding: 1rem;
-            width: calc(33% - 2rem);
+            flex: 1 1 calc(33% - 2rem);
             box-sizing: border-box;
             text-align: center;
         }
@@ -96,8 +99,6 @@
             color: LightSkyBlue;
             text-align: center;
             padding: 2rem;
-            position: relative;
-            bottom: 0;
             width: 100%;
         }
 
@@ -170,6 +171,19 @@
 
         .cookie-banner button:hover {
             background-color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .property {
+                flex: 1 1 calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
@@ -304,13 +318,18 @@
             const acceptCookies = document.getElementById("acceptCookies");
             const declineCookies = document.getElementById("declineCookies");
 
-            acceptCookies.addEventListener("click", function () {
+            acceptCookies.addEventListener("click", () => {
+                cookieBanner.style.display = "none";
+                localStorage.setItem("cookiesAccepted", "true");
+            });
+
+            declineCookies.addEventListener("click", () => {
                 cookieBanner.style.display = "none";
             });
 
-            declineCookies.addEventListener("click", function () {
-                cookieBanner.style.display = "none";
-            });
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.style.display = "block";
+            }
         });
     </script>
 </body>

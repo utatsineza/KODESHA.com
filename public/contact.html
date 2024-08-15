@@ -7,7 +7,6 @@
     <title>Contact - KODESHA.com</title>
     <style>
         /* Merged CSS */
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -55,21 +54,20 @@
             color: lightskyblue;
         }
 
-.contact-info {
-    font-size: 1rem;
-    color: #333; /* Adjust color to fit your design */
-    margin-top: 20px;
-}
+        .contact-info {
+            font-size: 1rem;
+            color: #333; /* Adjust color to fit your design */
+            margin-top: 20px;
+        }
 
-.contact-info a {
-    color: #59A3D5; /* Link color */
-    text-decoration: none; /* Remove underline */
-}
+        .contact-info a {
+            color: #59A3D5; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
 
-.contact-info a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
+        .contact-info a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
 
         footer {
             background-color: white;
@@ -166,38 +164,37 @@
         </nav>
     </header>
 
-            <section id="contact">
-                <h2>Contact Us</h2>
-                <p class="contact-info">
-                    You can reach us via email: 
-                    <a href="mailto:Kodesha77@gmail.com">Kodesha77@gmail.com</a> 
-                    or call us at: 
-                    <a href="tel:+250791754678">0791754678</a>.
-                </p>
-            </section>
-            
-            <footer>
-                <footer>
-                    <div class="container">
-                        <div class="footer-section">
-                            <h3>Quick Links</h3>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="listings.html">Listings</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-            
-                        <div class="footer-section">
-                            <h3>Address</h3>
-                            <p>Kigali, Rwanda</p>
-                            <p>Phone: <a href="tel:+250791754678">+250791754678</a></p>
-                            <p>Email: <a href="mailto:Kodesha77@gmail.com">Kodesha77@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <p>&copy; 2024 KODESHA.com. All rights reserved.</p>
-                </footer>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p class="contact-info">
+            You can reach us via email: 
+            <a href="mailto:Kodesha77@gmail.com">Kodesha77@gmail.com</a> 
+            or call us at: 
+            <a href="tel:+250791754678">0791754678</a>.
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Listings</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Address</h3>
+                <p>Kigali, Rwanda</p>
+                <p>Phone: <a href="tel:+250791754678">+250791754678</a></p>
+                <p>Email: <a href="mailto:Kodesha77@gmail.com">Kodesha77@gmail.com</a></p>
+            </div>
+        </div>
+        <p>&copy; 2024 KODESHA.com. All rights reserved.</p>
+    </footer>
 
     <div class="cookie-banner" id="cookieBanner">
         <p>We use cookies to ensure you get the best experience on our website. <button id="acceptCookies">Accept</button> <button id="declineCookies">Decline</button></p>
@@ -205,43 +202,22 @@
 
     <script>
         // Merged JavaScript
-
         document.addEventListener('DOMContentLoaded', () => {
             const cookieBanner = document.getElementById("cookieBanner");
             const acceptCookies = document.getElementById("acceptCookies");
             const declineCookies = document.getElementById("declineCookies");
 
-            acceptCookies.addEventListener("click", function () {
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.style.display = "block";
+            }
+
+            acceptCookies.addEventListener("click", () => {
                 cookieBanner.style.display = "none";
+                localStorage.setItem("cookiesAccepted", "true");
             });
 
-            declineCookies.addEventListener("click", function () {
+            declineCookies.addEventListener("click", () => {
                 cookieBanner.style.display = "none";
-            });
-
-            const contactForm = document.getElementById("contactForm");
-            contactForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData.entries());
-
-                fetch(contactForm.action, {
-                    method: contactForm.method,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.text())
-                .then(result => {
-                    alert(result);
-                    contactForm.reset();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
-                });
             });
         });
     </script>
