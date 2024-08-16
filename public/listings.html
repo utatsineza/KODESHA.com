@@ -173,16 +173,46 @@
             background-color: #ccc;
         }
 
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .navigation button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: LightSkyBlue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navigation button:active {
+            background-color: #5a9bd4;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .property {
                 flex: 1 1 calc(50% - 2rem);
+            }
+
+            .navigation button {
+                padding: 15px 25px;
+                font-size: 18px;
             }
         }
 
         @media (max-width: 480px) {
             .property {
                 flex: 1 1 100%;
+            }
+
+            .navigation button {
+                padding: 15px 25px;
+                font-size: 18px;
             }
         }
     </style>
@@ -205,6 +235,12 @@
         <h2>Available Listings</h2>
         <input type="text" id="search" placeholder="Search by location">
         <div id="properties"></div>
+
+        <!-- Navigation buttons for different parts of a house -->
+        <div class="navigation">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
     </section>
 
     <footer>
@@ -294,9 +330,9 @@
                     propertyDiv.innerHTML = `
                         <img src="${property.image}" alt="${property.name}">
                         <h3>${property.name}</h3>
-                        <p><strong>Location:</strong> ${property.location}</p>
-                        <p><strong>Description:</strong> ${property.description}</p>
-                        <p><strong>Price:</strong> $${property.price}/month</p>
+                        <p>${property.location}</p>
+                        <p>${property.description}</p>
+                        <p><strong>Price:</strong> $${property.price} /month</p>
                         <a href="${property.link}">View Property</a>
                     `;
                     propertiesContainer.appendChild(propertyDiv);
@@ -306,32 +342,65 @@
             displayProperties(properties);
 
             const searchInput = document.getElementById('search');
-            searchInput.addEventListener('input', () => {
-                const searchValue = searchInput.value.toLowerCase();
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.toLowerCase();
                 const filteredProperties = properties.filter(property =>
-                    property.location.toLowerCase().includes(searchValue)
+                    property.location.toLowerCase().includes(searchTerm)
                 );
                 displayProperties(filteredProperties);
             });
 
-            const cookieBanner = document.getElementById("cookieBanner");
-            const acceptCookies = document.getElementById("acceptCookies");
-            const declineCookies = document.getElementById("declineCookies");
+            // Handle navigation between parts of a house
+            const nextButton = document.getElementById('nextButton');
+            const prevButton = document.getElementById('prevButton');
 
-            acceptCookies.addEventListener("click", () => {
-                cookieBanner.style.display = "none";
-                localStorage.setItem("cookiesAccepted", "true");
-            });
-
-            declineCookies.addEventListener("click", () => {
-                cookieBanner.style.display = "none";
-            });
-
-            if (!localStorage.getItem("cookiesAccepted")) {
-                cookieBanner.style.display = "block";
+            function navigateToNextPart() {
+                // Logic to navigate to the next part of the house
+                console.log("Navigating to the next part of the house");
+                // Implement the actual navigation logic here...
             }
+
+            function navigateToPrevPart() {
+                // Logic to navigate to the previous part of the house
+                console.log("Navigating to the previous part of the house");
+                // Implement the actual navigation logic here...
+            }
+
+            // Add event listeners for both click and touch events
+            if (nextButton) {
+                nextButton.addEventListener('click', navigateToNextPart);
+                nextButton.addEventListener('touchstart', navigateToNextPart);
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', navigateToPrevPart);
+                prevButton.addEventListener('touchstart', navigateToPrevPart);
+            }
+
+            // Cookie Banner Handling
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptCookiesButton = document.getElementById('acceptCookies');
+            const declineCookiesButton = document.getElementById('declineCookies');
+
+            // Show the cookie banner if not already accepted/declined
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.style.display = 'block';
+            }
+
+            acceptCookiesButton.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.style.display = 'none';
+            });
+
+            declineCookiesButton.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'false');
+                cookieBanner.style.display = 'none';
+            });
+
         });
     </script>
+
 </body>
 
 </html>
