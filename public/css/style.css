@@ -44,6 +44,7 @@ section {
     padding: 50px 20px;
     border-bottom: 1px solid #ccc;
     background-color: #ffffff;
+    background-image: images/image 1.jpeg;
     color: lightskyblue;
     text-align: center;
 }
