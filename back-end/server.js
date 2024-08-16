@@ -13,6 +13,10 @@ const { body, validationResult } = require('express-validator');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+express.static.mime.define({'font/woff2': ['woff2']});
+
+app.use(express.static('public'));
+
 // Database setup with PostgreSQL
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
