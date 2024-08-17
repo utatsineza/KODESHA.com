@@ -11,13 +11,12 @@ header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Position logo and nav links on opposite sides */
+    justify-content: space-between; /* Ensures logo and nav are on opposite sides */
 }
 
 header img {
     max-width: 50px;
     height: auto;
-    margin-right: 20px;
 }
 
 header h1 {
@@ -31,13 +30,10 @@ header h1 {
 header nav {
     display: flex;
     align-items: center;
-    background-color: lightskyblue; /* White background for the navigation links */
-    padding: 5px 10px; /* Padding around the nav items */
-    border-radius: 5px; /* Optional: rounded corners for a better look */
 }
 
 header nav a {
-    color: white; /* Change text color to black for better visibility on light background */
+    color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: 1rem;
@@ -65,15 +61,14 @@ header nav a:hover {
     }
 
     header nav {
-        flex-direction: row; /* Display links horizontally on small screens */
-        flex-wrap: wrap; /* Wrap if necessary */
-        justify-content: center; /* Center align items */
-        margin: 0; /* Remove left margin */
-        background-color: lightskyblue; /* Ensure background color is light on small screens */
+        flex-direction: column; /* Stack links vertically on small screens */
+        align-items: center;
+        margin: 0; /* Remove margin */
+        width: 100%; /* Ensure full width */
     }
 
     header nav a {
-        margin: 5px 10px; /* Adjust spacing */
+        margin: 5px 0; /* Adjust spacing */
         font-size: 0.875rem;
     }
 }
