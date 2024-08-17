@@ -63,12 +63,14 @@ header nav a:hover {
     }
 
     header nav {
-        flex-direction: column; /* Stack links vertically on small screens */
-        align-items: center;
+        flex-direction: row; /* Display links horizontally on small screens */
+        flex-wrap: wrap; /* Wrap if necessary */
+        justify-content: center; /* Center align items */
+        margin: 0; /* Remove left margin */
     }
 
     header nav a {
-        margin: 5px 0;
+        margin: 5px 10px; /* Adjust spacing */
         font-size: 0.875rem;
     }
 }
