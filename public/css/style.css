@@ -37,7 +37,7 @@ header nav {
 }
 
 header nav a {
-    color: black; /* Change text color to black for better visibility on light background */
+    color: white; /* Change text color to black for better visibility on light background */
     margin: 0 15px;
     text-decoration: none;
     font-size: 1rem;
