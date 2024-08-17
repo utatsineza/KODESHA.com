@@ -10,15 +10,16 @@ header {
     background-color: LightSkyBlue;
     padding: 10px 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     justify-content: space-between;
     flex-wrap: nowrap;
+    flex-direction: column; /* Arrange header content vertically */
 }
 
 header img {
     max-width: 50px;
     height: auto;
-    margin-right: 20px;
+    margin-bottom: 20px; /* Space between logo and title */
 }
 
 header h1 {
@@ -26,17 +27,19 @@ header h1 {
     margin: 0;
     font-size: 2rem;
     white-space: nowrap;
+    margin-bottom: 20px; /* Space between title and nav */
 }
 
 header nav {
     display: flex;
-    align-items: center;
-    margin-left: auto;
+    align-items: flex-start;
+    flex-direction: column; /* Stack links vertically */
+    margin-left: 0; /* Reset margin */
 }
 
 header nav a {
     color: white;
-    margin: 0 15px;
+    margin: 10px 0; /* Add vertical spacing */
     text-decoration: none;
     font-size: 1rem;
 }
@@ -45,10 +48,11 @@ header nav a:hover {
     color: blue;
 }
 
+/* Media Queries for Responsive Design */
 @media (max-width: 600px) {
     header {
-        flex-direction: column;
         text-align: center;
+        align-items: center; /* Center items for smaller screens */
     }
 
     header img {
@@ -62,14 +66,13 @@ header nav a:hover {
     }
 
     header nav {
-        flex-direction: column;
+        align-items: center; /* Center nav links on smaller screens */
     }
 
     header nav a {
         margin: 5px 0;
     }
 }
-
 
 section {
     padding: 50px 20px;
@@ -157,29 +160,6 @@ footer .footer-section ul li a:hover {
 }
 
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header img {
-        max-width: 60px;
-        margin-bottom: 10px;
-    }
-
-    header h1 {
-        font-size: 1.25rem;
-        margin-bottom: 10px;
-    }
-
-    header nav {
-        flex-direction: column;
-    }
-
-    header nav a {
-        margin: 5px 0;
-    }
-
     footer .container {
         flex-direction: column;
         align-items: center;
