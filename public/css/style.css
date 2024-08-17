@@ -8,43 +8,76 @@ body {
 
 header {
     background-color: LightSkyBlue;
-    padding: 0 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+header img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 20px;
 }
 
 header h1 {
     color: white;
     margin: 0;
-    padding-left: 10px;
+    font-size: 2rem;
+    white-space: nowrap;
 }
 
 header nav {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 header nav a {
     color: white;
-    margin: 0 1rem;
+    margin: 0 15px;
     text-decoration: none;
+    font-size: 1rem;
 }
 
 header nav a:hover {
     color: blue;
 }
 
-header img {
-    height: auto;
-    max-width: 100px;
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        max-width: 60px;
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin: 5px 0;
+    }
 }
+
 
 section {
     padding: 50px 20px;
     border-bottom: 1px solid #ccc;
     background-color: #ffffff;
-    background-image: images/image 1.jpeg;
+    background-image: url('images/image 1.jpeg');
+    background-size: cover;
+    background-position: center;
     color: lightskyblue;
     text-align: center;
 }
@@ -124,6 +157,29 @@ footer .footer-section ul li a:hover {
 }
 
 @media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        max-width: 60px;
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin: 5px 0;
+    }
+
     footer .container {
         flex-direction: column;
         align-items: center;
@@ -135,11 +191,11 @@ footer .footer-section ul li a:hover {
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     h2 {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     p {
