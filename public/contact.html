@@ -15,48 +15,84 @@
 
     <meta name="contact:email" content="Kodesha77@gmail.com">
     <style>
-        /* Merged CSS */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: black;
-        }
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
 
-        header {
-            background-color: LightSkyBlue;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0;
-        }
+header {
+    background-color: LightSkyBlue;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
 
-        header h1 {
-            color: white;
-            margin: 0;
-            text-align: left;
-        }
+header img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 20px;
+}
 
-        header nav {
-            display: flex;
-            align-items: center;
-            background-color: LightSkyBlue;
-            text-align: right;
-        }
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+    white-space: nowrap;
+}
 
-        header nav a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
+header nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
 
-        header img {
-            height: 100px;
-            margin: 0;
-            padding: 1px 1px;
-        }
+header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1rem;
+}
 
-        section {
+header nav a:hover {
+    color: blue;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        max-width: 60px;
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-direction: row; /* Display links horizontally on small screens */
+        flex-wrap: wrap; /* Wrap if necessary */
+        justify-content: center; /* Center align items */
+        margin: 0; /* Remove left margin */
+    }
+
+    header nav a {
+        margin: 5px 10px; /* Adjust spacing */
+        font-size: 0.875rem;
+    }
+}
+
+section {
             padding: 50px 20px;
             border-bottom: 1px solid #ccc;
             background-color: #ffffff;
