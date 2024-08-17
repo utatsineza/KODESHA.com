@@ -11,8 +11,7 @@ header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    justify-content: space-between; /* Position logo and nav links on opposite sides */
 }
 
 header img {
@@ -28,14 +27,17 @@ header h1 {
     white-space: nowrap;
 }
 
+/* Navigation bar */
 header nav {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    background-color: lightskyblue; /* White background for the navigation links */
+    padding: 5px 10px; /* Padding around the nav items */
+    border-radius: 5px; /* Optional: rounded corners for a better look */
 }
 
 header nav a {
-    color: white;
+    color: white; /* Change text color to black for better visibility on light background */
     margin: 0 15px;
     text-decoration: none;
     font-size: 1rem;
@@ -67,6 +69,7 @@ header nav a:hover {
         flex-wrap: wrap; /* Wrap if necessary */
         justify-content: center; /* Center align items */
         margin: 0; /* Remove left margin */
+        background-color: lightskyblue; /* Ensure background color is light on small screens */
     }
 
     header nav a {
